@@ -6,6 +6,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
@@ -19,6 +22,7 @@ fun QuizFinished(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        val quizScore by remember { mutableIntStateOf(quizState.currentScore) }
         // Congratulatory message.
         Text(
             text = "Congratulations! You finished the quiz!",
@@ -27,7 +31,7 @@ fun QuizFinished(
         )
         // Final score message.
         Text(
-            text = "Your final score was:\n${quizState.currentScore}",
+            text = "Your final score was:\n${quizScore}",
             style = MaterialTheme.typography.headlineLarge,
             textAlign = TextAlign.Center,
         )
