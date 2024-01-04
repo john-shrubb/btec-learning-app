@@ -3,7 +3,9 @@ package com.johnshrubb.stanwayeducation.otherComposables
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -17,6 +19,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -78,6 +81,9 @@ fun StudentHomeScreen(
             // Generate new quiz buttons. Simple creates them and adds them to the list of quizzes.
             // Maybe I could do this as a dropdown and a + button
 
+            Text(
+                text = "Generating a new quiz will add it to the list of quizzes below."
+            )
             Button(
                 onClick = {
                     val quiz = quizManager.generateQuiz(0, "New Easy Quiz")
@@ -105,6 +111,22 @@ fun StudentHomeScreen(
             ) {
                 Text(text = "Generate Hard Quiz")
             }
+
+            TextButton(
+                onClick = {
+                    homeNavController.navigate("stuDiffHelpMenu")
+                }
+            ) {
+                Text(
+                    text = "Difficulty information"
+                )
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(
+                text = "Tap a card below to start a quiz."
+            )
             LazyColumn (
                 content = {
                     // Display all the current quizzes below the quiz generation buttons.

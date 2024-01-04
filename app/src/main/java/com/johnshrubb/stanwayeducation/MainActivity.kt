@@ -25,6 +25,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.johnshrubb.stanwayeducation.otherComposables.ChooseLoginScreen
+import com.johnshrubb.stanwayeducation.otherComposables.HelpScreen
 import com.johnshrubb.stanwayeducation.otherComposables.StudentHomeScreen
 import com.johnshrubb.stanwayeducation.otherComposables.StudentLoginScreen
 import com.johnshrubb.stanwayeducation.otherComposables.TutorLoginScreen
@@ -205,6 +206,10 @@ fun StudentNavigation(rootNavController: NavController) {
                 // The amount of non null assertions is disgusting.
                 val quiz = quizManager.getQuiz(quizID!!)
                 QuizNavigation(navController, quiz!!)
+            }
+
+            composable("stuDiffHelpMenu") {
+                HelpScreen(studentNavController = navController)
             }
         }
     } else {
