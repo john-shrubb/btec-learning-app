@@ -36,14 +36,22 @@ fun QuizPreStart(
             Button(
                 modifier = Modifier.padding(10.dp),
                 onClick = {
-                    quizNavController.navigate("question?q=1")
+                    quizNavController.navigate("question?q=1") {
+                        popUpTo(quizNavController.graph.id) {
+                            inclusive = true
+                        }
+                    }
                 }) {
                 Text("Start quiz")
             }
             OutlinedButton(
                 modifier = Modifier.padding(10.dp),
                 onClick = {
-                    homeNavController.navigateUp()
+                    homeNavController.navigate("studentHome") {
+                        popUpTo(homeNavController.graph.id) {
+                            inclusive = true
+                        }
+                    }
                 }
             ) {
                 Text("Go back")

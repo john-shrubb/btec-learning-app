@@ -4,4 +4,5 @@ package com.johnshrubb.stanwayeducation.quizComposables
 class QuizState {
     var currentScore = 0
     var currentQuestion = 1
+    var hasSecondLife = true
 }

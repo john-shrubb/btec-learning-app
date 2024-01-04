@@ -147,6 +147,7 @@ fun QuizNavigation(homeNavController: NavController, quiz: Quiz) {
                 quizNavController = quizNavController,
                 quizState = quizState,
                 question = question,
+                quiz = quiz,
             )
         }
 

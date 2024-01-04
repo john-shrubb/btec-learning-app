@@ -34,6 +34,7 @@ fun QuestionCorrect(
                 }
             }
         } else {
+            quizState.hasSecondLife = true
             quizNavController.navigate("question?q=${quizState.currentQuestion}") {
                 popUpTo(quizNavController.graph.id)
             }
