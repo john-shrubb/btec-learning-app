@@ -161,7 +161,8 @@ fun QuizNavigation(homeNavController: NavController, quiz: Quiz) {
             OutOfTime(
                 quizNavController = quizNavController,
                 question = quiz.question[quizState.currentQuestion - 1],
-                quizState = quizState
+                quizState = quizState,
+                quiz = quiz,
             )
         }
     }
