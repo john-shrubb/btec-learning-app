@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -142,7 +145,8 @@ fun QuizNavigation(homeNavController: NavController, quiz: Quiz) {
 
         // Shown when a user gets a question wrong. Shows the correct answer for the question.
         composable("questionIncorrectScreen") {
-            val question = quiz.question[quizState.currentQuestion - 2] // God knows why this is like that.
+            val currentQuestion by remember { mutableIntStateOf(quizState.currentQuestion) }
+            val question = quiz.question[currentQuestion - 2]
             QuestionIncorrect(
                 quizNavController = quizNavController,
                 quizState = quizState,
