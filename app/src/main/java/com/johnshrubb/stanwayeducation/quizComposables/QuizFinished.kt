@@ -38,9 +38,16 @@ fun QuizFinished(
             modifier = Modifier.size(200.dp),
             tint = Color(0xFFDE970B)
         )
+        val congratulatoryText = if (quizScore <= 3) {
+            "Maybe next time!"
+        } else if (quizScore <= 7) {
+            "Great job!"
+        } else {
+            "You did amazing!"
+        }
         // Congratulatory message.
         Text(
-            text = "Congratulations! You finished the quiz!",
+            text = congratulatoryText,
             style = MaterialTheme.typography.headlineLarge,
             textAlign = TextAlign.Center,
         )
