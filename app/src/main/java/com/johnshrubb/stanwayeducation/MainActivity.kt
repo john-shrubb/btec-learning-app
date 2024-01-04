@@ -146,7 +146,7 @@ fun QuizNavigation(homeNavController: NavController, quiz: Quiz) {
             QuestionIncorrect(
                 quizNavController = quizNavController,
                 quizState = quizState,
-                question = question
+                question = question,
             )
         }
 

@@ -116,7 +116,11 @@ fun StudentHomeScreen(
                                 .padding(10.dp)
                                 .fillMaxWidth()
                                 .clickable {
-                                    homeNavController.navigate("quiz?id=${quiz.quizID}")
+                                    homeNavController.navigate("quiz?id=${quiz.quizID}") {
+                                        popUpTo(homeNavController.graph.id) {
+                                            inclusive = true
+                                        }
+                                    }
                                 }
                         ) {
                             // Column with quiz details.
