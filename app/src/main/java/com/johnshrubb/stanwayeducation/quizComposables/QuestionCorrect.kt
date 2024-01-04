@@ -2,13 +2,20 @@ package com.johnshrubb.stanwayeducation.quizComposables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.CheckCircleOutline
+import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -41,16 +48,25 @@ fun QuestionCorrect(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(bottom = 200.dp),
     ) {
+        Icon(
+            imageVector = Icons.Outlined.CheckCircleOutline,
+            contentDescription = "Well done!",
+            modifier = Modifier.size(200.dp),
+            tint = Color.Green
+        )
         Text(
             text = "That's right!",
-            style = MaterialTheme.typography.displaySmall,
+            style = MaterialTheme.typography.displayMedium,
             modifier = Modifier.padding(20.dp),
             textAlign = TextAlign.Center,
         )
         Button(onClick = {
             quizContinue()
         }) {
-            Text("Continue")
+            Text(
+                "Continue",
+                style = MaterialTheme.typography.bodyLarge
+            )
         }
     }
 }

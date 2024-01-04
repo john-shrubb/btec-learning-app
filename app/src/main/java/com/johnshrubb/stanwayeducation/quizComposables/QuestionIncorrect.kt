@@ -3,12 +3,18 @@ package com.johnshrubb.stanwayeducation.quizComposables
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Cancel
+import androidx.compose.material.icons.outlined.CheckCircleOutline
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -38,6 +44,12 @@ fun QuestionIncorrect(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(bottom = 200.dp),
     ) {
+        Icon(
+            imageVector = Icons.Outlined.Cancel,
+            contentDescription = "Maybe next time!",
+            modifier = Modifier.size(200.dp),
+            tint = Color.Red
+        )
         // imagine getting 5 + 5 wrong smh
         Text(
             text = "Sorry! That's not right!",
